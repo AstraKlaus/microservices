@@ -18,6 +18,8 @@
     <modules>
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>speech-to-text-service</module>
+        <module>telegram-bot</module>
     </modules>
 
     <properties>
