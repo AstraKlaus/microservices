@@ -1,7 +1,11 @@
 package ru.microservices.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -10,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.microservices.config.TelegramBotConfig;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 
@@ -19,13 +24,13 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
     private final TelegramBotConfig config;
 
-    private final RecognitionService recognitionService;
+    private final RestTemplate restTemplate;
 
     private final Converter converter;
 
-    public TelegramBotService(TelegramBotConfig config, RecognitionService recognitionService, Converter converter) {
+    public TelegramBotService(TelegramBotConfig config, RestTemplate restTemplate, Converter converter) {
         this.config = config;
-        this.recognitionService = recognitionService;
+        this.restTemplate = restTemplate;
         this.converter = converter;
     }
 
@@ -38,11 +43,21 @@ public class TelegramBotService extends TelegramLongPollingBot {
             String filePath = getFilePath(fileId);
 
             try {
-                File wavFile = converter.convertOggToMp3(filePath);
-                byte[] wavAudio = Files.readAllBytes(wavFile.toPath());
-                String result = recognitionService.recognize(wavAudio);
+                File inputFile = File.createTempFile("input", ".ogg");
+
+                try (FileOutputStream fos = new FileOutputStream(inputFile.getAbsolutePath())) {
+                    fos.write(getTelegramAudio(filePath));
+                }
+
+                File wavFile = converter.convertOggToMp3(inputFile);
+                byte[] fileContent = Files.readAllBytes(wavFile.toPath());
+                System.out.println(fileContent.length + String.valueOf(wavFile.length()));
+                String result = getRecognizedText(wavFile);
+
+
                 SendMessage sendMessage = new SendMessage(String.valueOf(chatID) , result);
                 execute(sendMessage);
+
                 log.info("message is sent to chat {}", chatID);
             } catch (IOException | TelegramApiException e) {
                 System.out.println(e.getMessage());
@@ -64,6 +79,26 @@ public class TelegramBotService extends TelegramLongPollingBot {
             log.error("error with getting file path {}",e.getMessage());
             return null;
         }
+    }
+
+    private byte[] getTelegramAudio(String path){
+        return restTemplate.getForObject(path, byte[].class);
+    }
+
+    private String getRecognizedText(File audio){
+        String url = "http://api-gateway:8080/api/recognition";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        LinkedMultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+        body.add("audio", audio);
+
+        HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+
+        System.out.println("Audio to send: "+audio.length());
+
+        return restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class).getBody();
     }
 
     @Override

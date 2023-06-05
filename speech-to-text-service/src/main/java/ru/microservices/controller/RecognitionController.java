@@ -20,8 +20,8 @@ public class RecognitionController {
     }
 
     @PostMapping
-    public ResponseEntity<String> speechRecognition(@RequestParam("audio") MultipartFile file){
-        byte[] audio = new byte[0];
+    public ResponseEntity<String> speechRecognition(@RequestBody MultipartFile file){
+        byte[] audio;
         try {
             audio = file.getBytes();
         } catch (IOException e) {

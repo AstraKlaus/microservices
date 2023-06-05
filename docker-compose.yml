@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  discovery-server:
+    image: astraklaus/discovery-server:latest
+    container_name: discovery-server
+    pull_policy: always
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://discovery-server:8761/eureka"}}}}'
+
+
+  api-gateway:
+    image: astraklaus/api-gateway:latest
+    container_name: api-gateway
+    pull_policy: always
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    depends_on:
+      - discovery-server
+
+
+  speech-to-text:
+    image: astraklaus/speech-to-text-service:latest
+    container_name: speech-to-text
+    pull_policy: always
+    depends_on:
+      - discovery-server
+      - api-gateway
+
+  telegram-bot:
+    image: astraklaus/telegram-bot:latest
+    container_name: telegram-bot
+    pull_policy: always
+    depends_on:
+      - discovery-server
+      - api-gateway

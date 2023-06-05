@@ -5,23 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d538c79-056a-4086-b78b-1abb78d51af1" name="Changes" comment="Eureka Discovery Server + API GateWay">
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/SpeechRecognitionApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/controller/RecognitionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/service/RecognitionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/TelegramBotApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/Converter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/TelegramBotService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/ffmpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech-to-text-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/controller/RecognitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/controller/RecognitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/TelegramBotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/TelegramBotApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/TelegramBotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/TelegramBotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,16 +72,30 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xaser/Desktop/Учеба/SpringProjects/microservices/telegram-bot/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15136719&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4243421&quot;,
     &quot;settings.build.tools.auto.reload&quot;: &quot;SELECTIVE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c9bf6698d1eba129b4b2613eb68b7fbf&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;f26bf15160f45794e9ef679adea8bd1c&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\telegram-bot\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\api-gateway\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\api-gateway" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -128,6 +147,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +167,23 @@
       <workItem from="1684767956484" duration="10455000" />
       <workItem from="1684825993136" duration="7695000" />
       <workItem from="1685363826922" duration="1171000" />
+      <workItem from="1685455604878" duration="4955000" />
+      <workItem from="1685465105882" duration="147000" />
+      <workItem from="1685465264097" duration="1011000" />
+      <workItem from="1685471967106" duration="817000" />
+      <workItem from="1685473968483" duration="810000" />
+      <workItem from="1685528864294" duration="513000" />
+      <workItem from="1685530225025" duration="876000" />
+      <workItem from="1685531116399" duration="1620000" />
+      <workItem from="1685535087242" duration="4899000" />
+      <workItem from="1685549833735" duration="1271000" />
+      <workItem from="1685551696189" duration="1462000" />
+      <workItem from="1685598418923" duration="13013000" />
+      <workItem from="1685709559740" duration="7246000" />
+      <workItem from="1685735248458" duration="1225000" />
+      <workItem from="1685784075868" duration="15614000" />
+      <workItem from="1685904854099" duration="2705000" />
+      <workItem from="1685973146147" duration="542000" />
     </task>
     <task id="LOCAL-00001" summary="Eureka Discovery Server + API GateWay">
       <created>1684336688064</created>
@@ -159,6 +197,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eureka Discovery Server + API GateWay" />
