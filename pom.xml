@@ -16,10 +16,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>discovery-server</module>
-        <module>api-gateway</module>
         <module>speech-to-text-service</module>
         <module>telegram-bot</module>
+        <module>handwritten-to-text-service</module>
+        <module>compression-service</module>
+        <module>unpacking-service</module>
     </modules>
 
     <properties>

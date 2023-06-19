@@ -1,5 +1,6 @@
 package ru.microservices.service;
 
+import lombok.extern.slf4j.Slf4j;
 import net.bramp.ffmpeg.FFmpeg;
 import net.bramp.ffmpeg.FFmpegExecutor;
 import net.bramp.ffmpeg.builder.FFmpegBuilder;
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 
 @Component
+@Slf4j
 public class Converter {
 
     private final FFmpeg ffmpeg;
@@ -24,6 +26,7 @@ public class Converter {
     public File convertOggToMp3(File inputFile) throws IOException {
 
         File outputFile = File.createTempFile("output", ".wav");
+        log.info("{} is created", outputFile.getAbsolutePath());
 
         FFmpegBuilder builder = new FFmpegBuilder()
                 .setInput(inputFile.getAbsolutePath())
@@ -45,8 +48,9 @@ public class Converter {
 
         try {
             executor.createTwoPassJob(builder).run();
+            log.info("{} is converted, length is {}", outputFile.getName(), outputFile.length());
         } catch (IllegalArgumentException ignored) {
-            //отлавливаем и игнорируем ошибку, возникающую из-за отсутствия видеоряда (конвертер предназначен для видео)
+            //игнорируем ошибку, возникающую из-за отсутствия видеоряда
         }
         return outputFile;
     }

@@ -2,13 +2,16 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/compression-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/handwritten-to-text-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/speech-to-text-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/speech-to-text-service/telegram-bot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/telegram-bot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/unpacking-service/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -4,28 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d538c79-056a-4086-b78b-1abb78d51af1" name="Changes" comment="Eureka Discovery Server + API GateWay">
-      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/ffmpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0d538c79-056a-4086-b78b-1abb78d51af1" name="Changes" comment="dockerize app">
+      <change afterPath="$PROJECT_DIR$/compression-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compression-service/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwritten-to-text-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwritten-to-text-service/src/main/java/ru/shafikova/Configs/RecognitionConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwritten-to-text-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwritten-to-text-service/src/main/resources/files/icr.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/exception/RecognizeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/test/java/ru/microservices/service/RecognitionServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/speech-to-text-service/src/test/resources/Iloveyou.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/controller/TelegramBotController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpacking-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpacking-service/src/main/resources/application-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/ru/microservices/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/ru/microservices/discoveryserver/DiscoveryServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application-docker.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech-to-text-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/controller/RecognitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/controller/RecognitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/service/RecognitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/java/ru/microservices/service/RecognitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application-docker.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/speech-to-text-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram-bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/TelegramBotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/TelegramBotApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/config/TelegramBotInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/TelegramBotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/java/ru/microservices/service/TelegramBotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application-docker.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram-bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/telegram-bot/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +52,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -71,8 +94,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xaser/Desktop/Учеба/SpringProjects/microservices/telegram-bot/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xaser/Desktop/Учеба/SpringProjects/microservices/unpacking-service/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,20 +105,33 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15136719&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4243421&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.42359093&quot;,
     &quot;settings.build.tools.auto.reload&quot;: &quot;SELECTIVE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f26bf15160f45794e9ef679adea8bd1c&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;3b3f2cfcaa0009de43c59a1d3a8194b7&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\unpacking-service\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\compression-service\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service\src\test\resources" />
       <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\telegram-bot\src\main\resources" />
       <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service\src\main\resources" />
-      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\api-gateway\src\main\resources" />
-      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service" />
-      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\api-gateway" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service\src\main\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\nginx" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\speech-to-text-service\src\test\resources" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\nginx\conf.d" />
+      <recent name="C:\Users\Xaser\Desktop\Учеба\SpringProjects\microservices\nginx\default.conf" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.microservices.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -103,7 +141,70 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TelegramBotApplication">
+  <component name="RunManager" selected="JUnit.RecognitionServiceTest.recognize">
+    <configuration name="RecognitionServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="handwritten-to-text-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.shafikova.Text.Recognition.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.shafikova.Text.Recognition.Services" />
+      <option name="MAIN_CLASS_NAME" value="ru.shafikova.Text.Recognition.Services.RecognitionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognitionServiceTest.recognize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="handwritten-to-text-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.shafikova.Text.Recognition.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.shafikova.Text.Recognition.Services" />
+      <option name="MAIN_CLASS_NAME" value="ru.shafikova.Text.Recognition.Services.RecognitionServiceTest" />
+      <option name="METHOD_NAME" value="recognize" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognitionServiceTest.shouldReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="speech-to-text-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.microservices.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.microservices.service" />
+      <option name="MAIN_CLASS_NAME" value="ru.microservices.service.RecognitionServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognitionServiceTest.shouldThrowRecognizeException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="speech-to-text-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.microservices.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.microservices.service" />
+      <option name="MAIN_CLASS_NAME" value="ru.microservices.service.RecognitionServiceTest" />
+      <option name="METHOD_NAME" value="shouldThrowRecognizeException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.microservices.apigateway.ApiGatewayApplication" />
@@ -111,15 +212,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="discovery-server" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.microservices.discoveryserver.DiscoveryServerApplication" />
+    <configuration name="CompressionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="compression-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.shafikova.CompressionService.CompressionServiceApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.microservices.discoveryserver.*" />
+          <option name="PATTERN" value="ru.shafikova.CompressionService.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ComressionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="compression-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.shafikovs.ComressionService.ComressionServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,17 +246,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TextRecognitionApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="handwritten-to-text-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.shafikova.TextRecognitionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextRecognitionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="handwritten-to-text-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.shafikova.Text.Recognition.TextRecognitionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnpackingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="unpacking-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.shafikova.UnpackingService.UnpackingServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="JUnit.RecognitionServiceTest (1)" />
+      <item itemvalue="JUnit.RecognitionServiceTest.recognize" />
+      <item itemvalue="JUnit.RecognitionServiceTest.shouldReturn" />
+      <item itemvalue="JUnit.RecognitionServiceTest.shouldThrowRecognizeException" />
+      <item itemvalue="Spring Boot.ComressionServiceApplication" />
+      <item itemvalue="Spring Boot.UnpackingServiceApplication" />
+      <item itemvalue="Spring Boot.TextRecognitionApplication (1)" />
+      <item itemvalue="Spring Boot.TextRecognitionApplication" />
       <item itemvalue="Spring Boot.TelegramBotApplication" />
       <item itemvalue="Spring Boot.SpeechRecognitionApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
-      <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+      <item itemvalue="Spring Boot.CompressionServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
-        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
-        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+        <item itemvalue="JUnit.RecognitionServiceTest.recognize" />
+        <item itemvalue="JUnit.RecognitionServiceTest (1)" />
+        <item itemvalue="Spring Boot.CompressionServiceApplication" />
+        <item itemvalue="JUnit.RecognitionServiceTest.shouldThrowRecognizeException" />
+        <item itemvalue="JUnit.RecognitionServiceTest.shouldReturn" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +322,25 @@
       <workItem from="1685735248458" duration="1225000" />
       <workItem from="1685784075868" duration="15614000" />
       <workItem from="1685904854099" duration="2705000" />
-      <workItem from="1685973146147" duration="542000" />
+      <workItem from="1685973146147" duration="7067000" />
+      <workItem from="1685983184517" duration="3074000" />
+      <workItem from="1686063711299" duration="15443000" />
+      <workItem from="1686129574240" duration="15916000" />
+      <workItem from="1686243163769" duration="5003000" />
+      <workItem from="1686302149889" duration="5222000" />
+      <workItem from="1686331019464" duration="11986000" />
+      <workItem from="1686388276288" duration="5737000" />
+      <workItem from="1686562972545" duration="5611000" />
+      <workItem from="1686569563259" duration="1444000" />
+      <workItem from="1686590754540" duration="4576000" />
+      <workItem from="1686651359708" duration="1493000" />
+      <workItem from="1686654465170" duration="36000" />
+      <workItem from="1686660624772" duration="629000" />
+      <workItem from="1686670819698" duration="9000" />
+      <workItem from="1687080810645" duration="6690000" />
+      <workItem from="1687118754473" duration="5018000" />
+      <workItem from="1687123864371" duration="518000" />
+      <workItem from="1687165173945" duration="3932000" />
     </task>
     <task id="LOCAL-00001" summary="Eureka Discovery Server + API GateWay">
       <created>1684336688064</created>
@@ -192,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684336688064</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dockerize app">
+      <created>1685973857606</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685973857606</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +367,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -211,6 +387,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eureka Discovery Server + API GateWay" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eureka Discovery Server + API GateWay" />
+    <MESSAGE value="dockerize app" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerize app" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

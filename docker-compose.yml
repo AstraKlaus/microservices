@@ -1,40 +1,112 @@
 version: '3'
 
 services:
-  discovery-server:
-    image: astraklaus/discovery-server:latest
-    container_name: discovery-server
-    pull_policy: always
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: always
     ports:
-      - "8761:8761"
-    environment:
-      SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://discovery-server:8761/eureka"}}}}'
-
-
-  api-gateway:
-    image: astraklaus/api-gateway:latest
-    container_name: api-gateway
-    pull_policy: always
-    ports:
-      - "8080:8080"
-    expose:
-      - "8080"
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - discovery-server
+      - speech-to-text1
+      - speech-to-text2
+      - handwritten-to-text1
+      - handwritten-to-text2
+      - compression-service1
+      - compression-service2
+      - unpack-service1
+      - unpack-service2
+      - telegram-bot
+    networks:
+      - app-network
 
+  handwritten-to-text1:
+    image: astraklaus/handwritten-to-text-service
+    container_name: handwritten-to-text1
+    pull_policy: always
+    volumes:
+      - ./handwritten-to-text-service/src/main/resources/application.properties:/app/resources/application.properties
+      - ./handwritten-to-text-service/src/main/resources/leadtools:/app/resources/leadtools
+    networks:
+      - app-network
 
-  speech-to-text:
+  handwritten-to-text2:
+    image: astraklaus/handwritten-to-text-service
+    container_name: handwritten-to-text2
+    pull_policy: always
+    volumes:
+      - ./handwritten-to-text-service/src/main/resources/application.properties:/app/resources/application.properties
+      - ./handwritten-to-text-service/src/main/resources/leadtools:/app/resources/leadtools
+    networks:
+      - app-network
+
+  compression-service1:
+    image: astraklaus/compression-service
+    container_name: compression-service1
+    pull_policy: always
+    volumes:
+      - ./compression-service/src/main/resources/application-docker.properties:/app/resources/application-docker.properties
+    networks:
+      - app-network
+
+  compression-service2:
+    image: astraklaus/compression-service
+    container_name: compression-service2
+    pull_policy: always
+    volumes:
+      - ./compression-service/src/main/resources/application-docker.properties:/app/resources/application-docker.properties
+    networks:
+      - app-network
+
+  unpack-service1:
+    image: astraklaus/unpacking-service
+    container_name: unpack-service1
+    pull_policy: always
+    volumes:
+      - ./unpacking-service/src/main/resources/application-docker.properties:/app/resources/application-docker.properties
+    networks:
+      - app-network
+
+  unpack-service2:
+    image: astraklaus/unpacking-service
+    container_name: unpack-service2
+    pull_policy: always
+    volumes:
+      - ./unpacking-service/src/main/resources/application-docker.properties:/app/resources/application-docker.properties
+    networks:
+      - app-network
+
+  speech-to-text1:
     image: astraklaus/speech-to-text-service:latest
-    container_name: speech-to-text
+    container_name: speech-to-text1
     pull_policy: always
-    depends_on:
-      - discovery-server
-      - api-gateway
+    networks:
+      - app-network
+    environment:
+      - JAVA_OPTS=-Xmx16g
+
+  speech-to-text2:
+    image: astraklaus/speech-to-text-service:latest
+    container_name: speech-to-text2
+    pull_policy: always
+    networks:
+      - app-network
+    environment:
+      - JAVA_OPTS=-Xmx16g
 
   telegram-bot:
     image: astraklaus/telegram-bot:latest
     container_name: telegram-bot
     pull_policy: always
-    depends_on:
-      - discovery-server
-      - api-gateway
+    volumes:
+      - ./telegram-bot/src/main/resources/ffmpeg:/app/resources/ffmpeg
+    networks:
+      - app-network
+    command:
+      - chmod +x app/resources/ffmpeg
+
+networks:
+  app-network:
+    driver: bridge

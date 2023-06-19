@@ -1,6 +1,9 @@
 package ru.microservices.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -16,7 +19,7 @@ import ru.microservices.config.TelegramBotConfig;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.text.MessageFormat;
 
 @Component
 @Slf4j
@@ -50,10 +53,8 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 }
 
                 File wavFile = converter.convertOggToMp3(inputFile);
-                byte[] fileContent = Files.readAllBytes(wavFile.toPath());
-                System.out.println(fileContent.length + String.valueOf(wavFile.length()));
-                String result = getRecognizedText(wavFile);
-
+                FileSystemResource audioResource = new FileSystemResource(wavFile);
+                String result = getRecognizedText(audioResource);
 
                 SendMessage sendMessage = new SendMessage(String.valueOf(chatID) , result);
                 execute(sendMessage);
@@ -61,7 +62,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 log.info("message is sent to chat {}", chatID);
             } catch (IOException | TelegramApiException e) {
                 System.out.println(e.getMessage());
-                log.error("error with send to chat {} {}",e.getMessage(),chatID);
+                log.error("error with send to chat {} {}", e.getMessage(), chatID);
             }
 
         }
@@ -70,13 +71,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private String getFilePath(String fileId) {
         GetFile getFile = new GetFile();
         getFile.setFileId(fileId);
-
         try {
             org.telegram.telegrambots.meta.api.objects.File file = execute(getFile);
+            log.info("Voice message {} is received", file.getFileId());
             return file.getFileUrl(getBotToken());
         } catch (TelegramApiException e) {
-            e.printStackTrace();
-            log.error("error with getting file path {}",e.getMessage());
+            log.error("error with getting file path {}", e.getMessage());
             return null;
         }
     }
@@ -85,20 +85,44 @@ public class TelegramBotService extends TelegramLongPollingBot {
         return restTemplate.getForObject(path, byte[].class);
     }
 
-    private String getRecognizedText(File audio){
-        String url = "http://api-gateway:8080/api/recognition";
+    private String getRecognizedText(FileSystemResource audio){
+        String url = "http://nginx:80/api/recognizeAudio";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
         LinkedMultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
-        body.add("audio", audio);
+        body.add("file", audio);
 
         HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-        System.out.println("Audio to send: "+audio.length());
-
         return restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class).getBody();
+    }
+
+    public String sendFile(File audio){
+        FileSystemResource audioResource = new FileSystemResource(audio);
+
+        LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+        map.add("audio", audioResource);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<>(map, headers);
+
+        try {
+            restTemplate.exchange(
+                    MessageFormat.format("{}bot{}/sendAudio?chat_id={}",
+                            config.getUrl(), config.getToken(), config.getChatId()),
+                    HttpMethod.POST,
+                    requestEntity,
+                    String.class
+            );
+            return "OK";
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return "ERROR";
+        }
     }
 
     @Override

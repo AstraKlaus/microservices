@@ -16,4 +16,10 @@ public class TelegramBotConfig {
 
     @Value("${bot.token}")
     String token;
+
+    @Value("${bot.chatId}")
+    String chatId;
+
+    @Value("${api-url}")
+    String url;
 }
